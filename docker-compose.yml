@@ -1,0 +1,15 @@
+services:
+
+  product-service:
+    build: ./product-service
+    container_name: product-service
+    ports:
+      - "3001:3001"
+
+  order-service:
+    build: ./order-service
+    container_name: order-service
+    ports:
+      - "3002:3002"
+    depends_on:
+      - product-service
